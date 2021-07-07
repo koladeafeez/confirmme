@@ -14,6 +14,8 @@
   href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
   rel="stylesheet"
 />
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
   <style>
 
 html{
@@ -92,7 +94,8 @@ font-weight: 600;
   overflow: auto; */
   /* position : absolute; */
    width:100%;
-  height:100%; z-index:-1;
+  height:100%; 
+  z-index:-1;
 }
 
     .list-group-item {
@@ -208,11 +211,21 @@ section{
 }
 
 @media only screen and (min-width: 1200px) {
-#intro-text-container{
+
+
+  #intro-absolute{
+    position: absolute;
+  top: 0;
+  width:100%;
+  height: 100%;
+  } 
+
+
+/* #intro-text-container{
   position: absolute;
   top: 25%;
   width:40%;
-}
+} */
 }
 
 @media all and (min-width: 992px) {
@@ -368,6 +381,7 @@ pin-up {
   animation-delay:var(--nav-load-time);
   transform: scale(0);
   animation-fill-mode: forwards;
+  
 }
 
 /* nav{
@@ -603,9 +617,10 @@ canvas {
   </div> -->
 <!-- end loader -->
 
-<div class=" intro-section wheat-background nav-white " >
+<!-- <div class=" intro-section wheat-background nav-white " > -->
   <!-- navbar -->
-  
+  <div id="particles-js" class="d-none d-lg-block"></div>
+  <div id="intro-absolute">
   <nav class="navbar navbar-expand-md navbar-light pt-2 pb-0" >
     <!-- <a onmouseout="handlePopOut()"> -->
     <div class="container-xxl">
@@ -723,11 +738,11 @@ canvas {
   
   <section id="intro pb-0"  >
     <div class="container-sm">
-      
-      <div class="row g-4 justify-content-center align-items-center" >
+     
+      <div class="row g-4 justify-content-center align-items-center"  >
         
-        <div class="col-md-5 text-start ">
-          <div id="particles-js" class="d-none d-lg-block"></div>
+        <div class="col-md-5 text-start px-0">
+          
           <div id="intro-text-container">
           <h1 > 
             <div class="display-2 intro-heading main-heading" style="font-size: larger;">Identity Verification  </div>
@@ -742,10 +757,7 @@ canvas {
            </p>
           
          <a href="#pricing" class=" intro-btn btn btn-secondary btn-small btn-md-lg complimentary-bg">Get Started For Free</a>
-          <!-- open sidebar / offcanvas -->
-        <!--  <a href="#sidebar" class="d-block mt-3" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar">
-            Explore my other books
-          </a> -->
+       
         </div>
      
      </div>
@@ -816,7 +828,7 @@ canvas {
 
   </section>
 
-
+</div>
 
 
   
@@ -833,12 +845,7 @@ canvas {
             <p class="lead">
               ConfirmMe is not application or system-intrusive, meaning our products can seamlessly integrate into any existing platform. It is a licensable design that can be integrated into OEM systems and products while ensuring user privacy and eliminates the need for a government or corporate-based database system.
             </p>
-            <!-- <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
-              reiciendis eius autem eveniet mollitia, at asperiores suscipit
-              quae similique laboriosam iste minus placeat odit velit quos,
-              nulla architecto amet voluptates?
-            </p> -->
+           
 
           </div>
         </div>
@@ -858,13 +865,7 @@ canvas {
             <p class="lead">
               ConfirmMe offers web service, a widget for non-API consuming customers, and unique API service for large customers who require to perform Bulk verifications. If you want to use the widget or integrate the verification solution via an API (Application Programming Interface), our team of specialists is ready to assist you. This option allows the full customization of the verification service per your preferences.
             </p>
-            <!-- <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
-              reiciendis eius autem eveniet mollitia, at asperiores suscipit
-              quae similique laboriosam iste minus placeat odit velit quos,
-              nulla architecto amet voluptates?
-            </p> -->
-
+      
           </div>
           <div class="col-md">
             <!-- <img src="./assets/fraud-detection.png" class="img-fluid" alt="" /> -->
@@ -879,19 +880,17 @@ canvas {
         <div class="row align-items-center justify-content-center">
           <div class="col-10 col-md-4 order-1 order-md-0 mb-5" >
            
-            <img src="./assets/widgets.png" class="img-fluid ps-4" alt="" id="widget-img" />
+            <img src="./assets/drib.png" class="img-fluid ps-0" alt="" id="widget-img" />
       
           </div>
-          <div class=" col-12 col-md-6 order-0 order-md-1">
+          <div class=" col-12 col-md-6 order-0 order-md-1 mb-2">
             <!-- <h2 class="main-heading">Secure Payment</h2> -->
             <h2 class="main-heading">ConfirmMe Widget</h2>
             <p class="lead">
               ConfirmMe offers a verification widget feature that is interactive and customizable and can easily be hosted on a client’s platform – mobile or web to provide an interactive verification identification and authorization experience for the end-user during onboarding
             </p>
-            <button class="btn complimentary-bg text-white float-right" style="float: right;">Watch Demo</button>
-            <!-- <p>
-              ConfirmMe® integrates to various data sources via a very secure tunnel with the latest encryption standards for data security
-            </p> -->
+            <button class="btn complimentary-bg btn-sm text-white float-right" style="float: right;">Watch Demo</button>
+          
 
           </div>
         </div>
@@ -1061,7 +1060,7 @@ Our solutions are developed to operate over any mix of network and system infras
 
 <!-- Api Section -->
 
-<section class="container" >
+<section class="container mx-3" >
   <div class="row" class="api-row" style="justify-content: center;"  >
     <div class=" col-10 col-md-5  py-9 bg-dark text-white" class="api-item1 border-3 " style="border-radius: 5px;">
       <div class="py-5 px-3">
@@ -1413,34 +1412,34 @@ Our solutions are developed to operate over any mix of network and system infras
     <div class="row  justify-content-between align-items-center">
     
    
-      <div class="col-1"> 
+      <div class=" col-3 col-md-1"> 
         <img class="w-100 fluid-source " src="./assets/source/Federal Inland Revenue Service Logo.svg"  alt="">
      
       </div>
-      <div class="col-1 justify-content-center align-items-center"> 
+      <div class="col-3 col-md-1 justify-content-center align-items-center"> 
         <img class="w-100 fluid-source " src="./assets/source/nibss-logo.png"  alt="">
     
       </div>
-     <div class="col-1 justify-content-center align-items-center"> 
+     <div class="col-3 col-md-1 justify-content-center align-items-center"> 
         <img  style="width: 200%;" class=" fluid-source " src="./assets/source/logo.png"  alt="">
     
       </div>
-      <div class="col-1"> 
+      <div class="col-3 col-md-1"> 
         <img class="w-100 fluid-source " src="./assets/source/download.jpg"  alt="">
      
       </div>
-      <div class="col-1 justify-content-center align-items-center"> 
+      <div class="col-3 col-md-1 justify-content-center align-items-center"> 
         <img class="w-100 fluid-source" src="./assets/source/National Identity Management Commission Logo.svg"  alt="">
     
       </div>
-      <div class="col-1 justify-content-center align-items-center"> 
+      <div class="col-3 col-md-1 justify-content-center align-items-center"> 
         <svg style="width: 180%;" role="img" aria-label="Smile Identity" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177 22">
           <path d="M13.416 9.26V6.527c0-3.816-2.03-5.999-5.581-5.999-3.552 0-5.582 2.183-5.582 6v.668c0 .177.142.315.325.315a.316.316 0 00.324-.315v-.669c0-2.006.65-5.37 4.933-5.37 4.282 0 4.932 3.364 4.932 5.37v2.695H1.949C.873 9.221 0 10.087 0 11.13l.406 8.242c0 1.042.873 1.908 1.948 1.908h10.291c1.076 0 1.949-.846 1.949-1.908L15 11.149c.02-.944-.67-1.711-1.584-1.888zm.548 10.091c0 .728-.588 1.299-1.299 1.299H2.375a1.28 1.28 0 01-1.3-1.28L.67 11.13c0-.709.588-1.28 1.32-1.28h11.102c.71 0 1.299.571 1.319 1.28l-.447 8.221z" fill="currentColor"></path>
           <path d="M3.491 15.693c1.116.983 2.659 1.77 4.181 1.71 1.502-.058 3.025-.825 4.181-1.71.264-.197-.101-.531-.365-.354-1.055.806-2.476 1.514-3.836 1.573-1.38.06-2.821-.688-3.816-1.573-.223-.197-.589.137-.345.354z" fill="#17A3DC"></path>
           <path d="M28.802 15.962c-.695-.22-1.233-.564-1.612-.94a.566.566 0 01-.19-.438c0-.125.032-.22.095-.282.063-.094.126-.125.221-.125s.222.062.348.156c.949.783 2.055 1.16 3.32 1.16.917 0 1.612-.189 2.118-.533.506-.376.76-.877.76-1.567 0-.376-.127-.689-.349-.94a2.263 2.263 0 00-.916-.563c-.38-.126-.886-.282-1.487-.408-.822-.187-1.486-.375-1.991-.563-.506-.188-.95-.47-1.297-.878-.348-.407-.537-.908-.537-1.566 0-.595.158-1.096.474-1.566.316-.47.759-.814 1.328-1.065.569-.25 1.233-.376 1.992-.376.695 0 1.36.125 1.96.345.601.219 1.139.532 1.518.97.126.126.19.283.19.44 0 .125-.032.219-.095.281-.063.094-.127.125-.222.125-.094 0-.22-.062-.347-.156-.538-.439-1.044-.752-1.486-.909a4.58 4.58 0 00-1.55-.25c-.885 0-1.612.188-2.118.564-.506.376-.76.908-.76 1.597 0 .408.127.752.349 1.003.221.25.506.47.885.595.348.156.822.282 1.391.438l.38.094c.822.188 1.454.376 1.928.564.475.157.886.439 1.202.783.316.345.506.846.506 1.441a2.67 2.67 0 01-.474 1.535c-.317.47-.76.783-1.36 1.034-.57.25-1.233.376-1.992.376a8.147 8.147 0 01-2.182-.376zM49.702 5.687c.095.094.127.22.127.345v9.774c0 .125-.032.25-.127.344-.094.094-.19.126-.347.126-.127 0-.253-.032-.317-.126a.559.559 0 01-.094-.344V7.473l-3.573 6.86c-.127.22-.285.345-.506.345-.222 0-.38-.126-.506-.345l-3.605-6.797v8.27c0 .156-.031.281-.095.344-.063.094-.19.126-.316.126-.158 0-.253-.032-.348-.126-.063-.094-.126-.188-.126-.344V6.032c0-.125.032-.25.126-.345.095-.094.19-.125.348-.125.19 0 .348.125.443.345l4.079 7.737 4.015-7.737c.127-.22.285-.345.443-.345.19-.031.316.031.38.125zM55.742 16.119a.468.468 0 01-.127-.345V6.032c0-.125.032-.25.127-.345.094-.094.19-.125.347-.125.127 0 .253.031.348.125.095.094.127.22.127.345v9.774c0 .125-.032.25-.127.344-.095.094-.19.125-.348.125a.51.51 0 01-.347-.156zM62.477 16.056c-.095-.094-.159-.188-.159-.313V6.032c0-.125.032-.25.127-.345.095-.094.19-.125.348-.125.158 0 .253.031.347.125.095.094.127.188.127.345v9.366h5.185c.127 0 .222.032.317.094a.416.416 0 01.126.313.4.4 0 01-.126.314c-.064.062-.19.094-.317.094h-5.628c-.126-.032-.253-.063-.347-.157zM73.575 16.056c-.095-.094-.159-.188-.159-.345V6.063a.5.5 0 01.159-.344.478.478 0 01.347-.126h5.755c.126 0 .221.032.316.094a.415.415 0 01.127.314c0 .125-.032.219-.127.281-.063.063-.19.094-.316.094h-5.344v4.041h5.028c.126 0 .221.032.316.094a.416.416 0 01.126.314c0 .156-.031.219-.126.313-.063.063-.19.094-.316.094h-5.028v4.166h5.344c.126 0 .221.032.316.094a.395.395 0 01.127.282.4.4 0 01-.127.313c-.063.063-.19.094-.316.094h-5.755a.478.478 0 01-.347-.125zM92.198 16.119a.468.468 0 01-.126-.345V6.032c0-.125.031-.25.126-.345.095-.094.19-.125.348-.125.126 0 .253.031.348.125.095.094.126.22.126.345v9.774c0 .125-.031.25-.126.344-.095.094-.19.125-.348.125a.51.51 0 01-.348-.156zM98.933 16.056c-.095-.094-.158-.188-.158-.345V6.063a.5.5 0 01.158-.344.478.478 0 01.348-.126h2.94c1.676 0 3.004.47 3.921 1.379.917.908 1.391 2.224 1.391 3.915 0 1.692-.474 3.008-1.391 3.916-.917.908-2.213 1.378-3.921 1.378h-2.94a.478.478 0 01-.348-.125zm3.257-.69c2.909 0 4.363-1.503 4.363-4.479s-1.454-4.48-4.363-4.48h-2.466v8.96h2.466zM113.035 16.056c-.095-.094-.158-.188-.158-.345V6.063a.5.5 0 01.158-.344.478.478 0 01.348-.126h5.755c.126 0 .221.032.316.094.095.063.126.157.126.314 0 .125-.031.219-.126.281a.538.538 0 01-.316.094h-5.344v4.041h5.027a.54.54 0 01.317.094.416.416 0 01.126.314c0 .156-.032.219-.126.313-.064.063-.19.094-.317.094h-5.027v4.166h5.344c.126 0 .221.032.316.094a.396.396 0 01.126.282.4.4 0 01-.126.313c-.064.063-.19.094-.316.094h-5.755a.478.478 0 01-.348-.125zM132.923 5.656c.064.094.127.188.127.345v9.773c0 .126-.032.25-.127.345-.095.094-.189.125-.347.125-.159 0-.285-.063-.412-.22l-6.64-8.864v8.614c0 .126-.031.25-.126.345a.408.408 0 01-.316.125c-.158 0-.253-.031-.348-.125a.56.56 0 01-.095-.345V6.032c0-.125.032-.25.127-.345.095-.094.189-.125.347-.125.159 0 .285.063.38.22l6.608 8.833V6.032c0-.125.032-.25.127-.345a.407.407 0 01.316-.125c.221-.031.316.031.379.094zM141.587 16.119a.468.468 0 01-.127-.345V6.408h-3.478a.538.538 0 01-.316-.094c-.095-.063-.126-.157-.126-.313a.4.4 0 01.126-.314c.095-.094.19-.094.316-.094h7.905c.126 0 .221.032.316.126a.381.381 0 01.127.282c0 .093-.032.219-.127.281-.095.063-.19.126-.316.126h-3.478v9.366c0 .125-.032.25-.127.345-.094.094-.189.125-.347.125-.159.031-.253-.031-.348-.125zM150.914 16.119a.467.467 0 01-.126-.345V6.032c0-.125.031-.25.126-.345.095-.094.19-.125.348-.125.127 0 .253.031.348.125.095.094.126.22.126.345v9.774c0 .125-.031.25-.126.344-.095.094-.19.125-.348.125a.511.511 0 01-.348-.156zM160.274 16.119a.468.468 0 01-.127-.345V6.408h-3.51a.538.538 0 01-.316-.094c-.095-.063-.126-.157-.126-.313a.4.4 0 01.126-.314c.095-.094.19-.094.316-.094h7.905c.127 0 .222.032.316.126a.381.381 0 01.127.282c0 .093-.032.219-.127.281-.094.063-.189.126-.316.126h-3.478v9.366c0 .125-.031.25-.126.345-.095.094-.19.125-.348.125a.301.301 0 01-.316-.125zM176.589 5.562c.126 0 .221.031.284.125.064.094.127.188.127.314 0 .125-.032.219-.095.281l-3.794 4.825v4.699c0 .125-.032.25-.127.344-.095.094-.189.125-.348.125a.478.478 0 01-.347-.125.468.468 0 01-.127-.344v-4.762L168.4 6.251a.497.497 0 01-.095-.282c0-.125.031-.219.126-.282a.389.389 0 01.285-.125.44.44 0 01.348.188l3.604 4.605 3.605-4.605a.347.347 0 01.316-.188z" fill="currentColor"></path>
         </svg>
       </div>  
-      <div class="col-1 justify-content-center align-items-center"> 
+      <div class="col-3 col-md-1 justify-content-center align-items-center"> 
         <img class="w-100 fluid-source" src="./assets/source/47ff4f92224189.Y3JvcCw5OTcsNzc5LDAsMjc.jpg"  alt="">
     
       </div>
@@ -1453,7 +1452,7 @@ Our solutions are developed to operate over any mix of network and system infras
 <!-- End Sources -->
   
   <!-- contact form -->
-  <!-- form-control, form-label, form-select, input-group, input-group-text -->
+ 
   <section id="support">
     <div class="container-lg">
 
@@ -1464,8 +1463,7 @@ Our solutions are developed to operate over any mix of network and system infras
       <div class="row justify-content-center my-3">
         <div class="col-lg-6">
 
-          <form>
-            <!-- <label for="email" class="form-label">Email address:</label> -->
+          <form  >
             <div class="input-group mb-4">
               <span class="input-group-text">
                 <i class="bi bi-envelope-fill text-secondary"></i>
@@ -1491,23 +1489,13 @@ Our solutions are developed to operate over any mix of network and system infras
                 </span>
               </span>
             </div>
-            <!-- <label for="subject" class="form-label">What is your question about?</label>
-            <div class="mb-4 input-group">
-              <span class="input-group-text">
-                <i class="bi bi-chat-right-dots-fill text-secondary"></i>
-              </span>
-              <select class="form-select" id="subject">
-                <option value="pricing" selected>Pricing query</option>
-                <option value="content">Content query</option>
-                <option value="other">Other query</option>
-              </select>
-            </div> -->
+         
             <div class="mb-4 mt-5 form-floating">
               <textarea class="form-control" id="query" style="height: 140px" placeholder="query"></textarea>
               <label for="query">What Your Query...</label>
             </div>
             <div class="mb-4 text-center">
-              <button type="submit" class="btn btn-secondary">Submit</button>
+              <button type="button" class="btn btn-secondary" onclick="sendEmail()">Submit</button>
             </div>
           </form>
         </div>
@@ -1546,26 +1534,7 @@ Our solutions are developed to operate over any mix of network and system infras
 
           </div>
           
-<!-- 
-          <ul class="list-group list-group-flush lead">
-            <li class="list-group-item">
-              <span class="fw-bold">Main Location:</span> 50 Main st Boston MA
-            </li>
-            <li class="list-group-item">
-              <span class="fw-bold">Enrollment Phone:</span> (555) 555-5555
-            </li>
-            <li class="list-group-item">
-              <span class="fw-bold">Student Phone:</span> (333) 333-3333
-            </li>
-            <li class="list-group-item">
-              <span class="fw-bold">Enrollment Email:</span> (555)
-              enroll@frontendbc.test
-            </li>
-            <li class="list-group-item">
-              <span class="fw-bold">Student Email:</span>
-              student@frontendbc.test
-            </li>
-          </ul> -->
+
         </div>
         <div class="col-md d-none d-md-block" style="height:260px">
           <div id="map"></div>
@@ -1574,26 +1543,7 @@ Our solutions are developed to operate over any mix of network and system infras
     </div>
   </section>
   <!-- get updates / modal trigger -->
-  <!-- <section class="bg-light">
-    <div class="container">
-      <div class="text-center">
-        <h2>Stay in The Loop</h2>
-        <p class="lead">Get the latest updates as they happen...</p>
-      </div>
-      
-      <div class="row justify-content-center">
-        <div class="col-md-8 text-center">
-          <p class="text-muted my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero exercitationem
-            voluptatibus porro, hic asperiores fuga illo voluptates obcaecati deleniti veritatis sunt saepe quasi
-            deserunt ex ipsum. Est possimus, aspernatur, vitae eligendi rem odit quaerat, ipsum pariatur ratione maxime
-            delectus fuga minus accusamus dolores iusto maiores accusantium cumque magnam placeat quia!</p>
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reg-modal">
-            Register for Updates
-          </button>
-        </div>
-      </div>
-    </div>
-  </section> -->
+
 
   <!-- modal itself -->
   <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
@@ -1729,6 +1679,25 @@ if (window.innerWidth > 992) {
 
 
     }
+
+    function sendEmail() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var query = document.getElementById("query").value;
+
+      console.log(name,email,query);
+	Email.send({
+	Host: "smtp.gmail.com",
+	Username : email,
+	Password : "password",
+	To : 'confirmme@chams.com',
+	From :  email,
+	Subject : "Confirmme Customer Query",
+	Body : "query",
+	}).then(
+		message => alert("mail sent successfully")
+	);
+}
 
 
 function handlePopUp(){

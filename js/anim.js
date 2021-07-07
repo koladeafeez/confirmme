@@ -1,13 +1,3 @@
-var animation = bodymovin.loadAnimation({
-  container: document.getElementById("animContainer"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  // path: "../assets/illustrations/DrawKit - Economy & Finance/DrawKit - Economy & Finance/7 - BANK DEAL.svg", // lottie file path
-});
-
-// https://assets9.lottiefiles.com/packages/lf20_5n8yfkac.json
-
 gsap.registerPlugin(ScrollTrigger);
 gsap.to("progress", {
   value: 100,
@@ -22,7 +12,7 @@ gsap.set(".content:not(.initial)", { autoAlpha: 0 });
 
 var headlines = gsap.utils.toArray(".text");
 
-var totalDuration = 1000;
+var totalDuration = 1700;
 var singleDuration = totalDuration / headlines.length;
 
 const lineTimeline = gsap.timeline();
