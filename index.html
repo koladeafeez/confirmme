@@ -9,7 +9,35 @@
   <link rel="stylesheet" href="./assets/resources/bootstrap/dist/css/bootstrap.min.css">
   <link href="./css/main.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/loader.css">
+  <link
+  href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
+  rel="stylesheet"
+/>
   <style>
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  margin-right: 0;
+}
+
+.intro-text{
+  background: url('./assets/shape-005.png');
+}
+
+#animContainer {
+  width: 100%;
+  height: 100%;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
     section {
       padding: 60px 0;
     }
@@ -47,6 +75,13 @@
     background-color: #F1FEF4;
   }
 
+  #pricing {
+    background-color: #F1FEF4;
+    /* background:url('./assets/background-012.png');
+    background-position: center;
+  background-size:cover; */
+  }
+
   .banner {
   /* width: 100px; */
   /* height: 100px; */
@@ -58,10 +93,14 @@
    clip-path: polygon(100% 0, 100% 80%, 0 100%, 0 0); 
 }
 
-
+@media only screen and (min-width: 600px) {
+  .table {
+    width: 75%;
+  }
+}
   </style>
 
-  <script>
+  <!-- <script>
     document.onreadystatechange = function () {
       if (document.readyState !== "complete") {
         document.querySelector("body").style.visibility = "hidden";
@@ -84,17 +123,17 @@
       }
     };
 
-  </script>
+  </script> -->
 
 </head>
 
 <body>
 
-
-  <div class="circle-loader">
+<!-- loader -->
+  <!-- <div class="circle-loader">
     <div class="checkmark draw"></div>
-  </div>
-
+  </div> -->
+<!-- end loader -->
 
 <div class=" intro-section wheat-background " >
   <!-- navbar -->
@@ -146,12 +185,12 @@
   <section id="intro" >
     <div class="container-lg">
       <div class="row g-4 justify-content-center align-items-center" >
-        <div class="col-md-5 text-center text-md-start">
+        <div class="col-md-5 text-md-center text-md-start intro-text ">
           <h1>
             <div class="display-2">Identity Verification </div>
             <div class="display-5 text-muted">Makes Easy</div>
           </h1>
-          <p class="lead my-4 text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
+          <p class="lead my-3 text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
             dignissimos?</p>
          <a href="#pricing" class="btn btn-secondary btn-lg complimentary-bg">Get Started For Free</a>
           <!-- open sidebar / offcanvas -->
@@ -159,76 +198,84 @@
             Explore my other books
           </a> -->
         </div>
-        <div class="col-md-5 text-center justify-content-end primary-bg banner  d-md-block">
+        <div class="col-md-5 text-center primary-bg banner  d-md-block">
           <!-- tooltip -->
           <span class="tt" title="Net Ninja Pro book cover">
             <img src="./assets/hero-image-1.677edc5.png" class="img-fluid " alt="ebook">
           </span>
+          
         </div>
+        
       </div>
     </div>
     
-  </section>
-</div>
 
-
-
-<!-- Trusted By -->
- <!-- 
-<section>
+    <!-- Trusted By -->
+ 
+<section class="py-0">
 
   <div class="container-lg">
     <div>
-      <p class="lead px-2" > Trusted By  </p>
+      <p class="lead px-2" > Trusted by these fine companies and many more  </p>
   </div>
     <div class="row">
     
    
-      <div class="col-3 justify-content-center align-items-center"> 
+      <div class="col-2 col-md-1 justify-content-center align-items-center"> 
   
-        <img class="img-fluid"src="./assets/source/swiftend.svg"  alt="">
+        <img class="w-50 " src="./assets/source/Access Bank PLC Logo.svg"  alt="">
       
       </div>
-      <div class="col-3 justify-content-center align-items-center"> 
+      <div class="col-2 col-md-1 justify-content-center align-items-center"> 
     
-        <img class="img-fluid"src="./assets/source/MTN-Plain.svg"  alt="">
+        <img class="w-50 " src="./assets/source/Federal Inland Revenue Service Logo.svg"  alt="">
      
       </div>
-      <div class="col-3 justify-content-center align-items-center"> 
+      <div class="col-2 col-md-1 justify-content-center align-items-center"> 
       
-        <img class="img-fluid"src="./assets/source/ajocard.svg"  alt="">
+        <img class="w-50 " src="./assets/source/Fidelity Bank Nigeria Logo.svg"  alt="">
     
       </div>
-     <div class="col-2 justify-content-center align-items-center"> 
+     <div class="col-2 col-md-1 justify-content-center align-items-center"> 
       
-        <img class="img-fluid"src="./assets/source/gtbank.png"  alt="">
+        <img class="w-50 " src="./assets/source/Guaranty Trust Bank Logo.svg"  alt="">
     
       </div>
-      <div class="col-2 justify-content-center align-items-center"> 
+      <div class="col-2 col-md-1 justify-content-center align-items-center"> 
       
-        <img class="img-fluid"src="./assets/citytech.png"  alt="">
+        <img class="w-50 " src="./assets/source/Keystone Bank Limited Logo.svg"  alt="">
     
       </div>
-      <div class="col-2 justify-content-center align-items-center"> 
+      <div class="col-2 col-md-1 justify-content-center align-items-center"> 
       
-        <img class="img-fluid"src="./assets/source/zenith.png"  alt="">
+        <img class="w-50 " src="./assets/source/MTN Logo.svg"  alt="">
     
       </div>  
      
     </div>
   </div>
-</section>  -->
+</section> 
+
+
+
+
+
+
+
+  </section>
+</div>
+
 
 
   
     <!-- Learn Sections -->
-    <section id="learn" class="p-lg-5">
+    <section id="learn" class=" pt-1 pb-2 px-2 p-md-5 p-lg-5">
       <div class="container">
         <div class="row align-items-center justify-content-between">
-          <div class="col-md">
+          <div class="col-md order-1 order-md-0 ">
             <img src="./assets/acquire-users.png" class="img-fluid" alt="" />
           </div>
-          <div class="col-md p-5">
+          <div class="col-md  order-0 order-md-1">
             <h2>Smooth Identity Verification</h2>
             <p class="lead">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -248,12 +295,15 @@
       </div>
     </section>
     
+    <!-- animation -->
+
+    <!-- end -->
 
 
-    <section id="learn" class="p-lg-5 bg-dark primary-bg text-light">
+    <section id="learn" class=" pt-1 pb-2 px-2 p-md-5 p-lg-5 mb-2 bg-dark primary-bg text-light">
       <div class="container">
         <div class="row align-items-center justify-content-between">
-          <div class="col-md p-5">
+          <div class="col-md pt-1 pb-2 px-2 p-md-5 ">
             <h2>User Friendly & Easy to Use</h2>
             <p class="lead">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -276,13 +326,14 @@
       </div>
     </section>
 
-    <section id="learn" class="p-lg-5">
+    <section id="learn" class=" pt-2 pb-2 px-2 p-md-5 p-lg-5 mt-4">
       <div class="container">
         <div class="row align-items-center justify-content-between">
-          <div class="col-md">
+          <div class="col-md order-1 order-md-0">
             <img src="./assets/platforms.png" class="img-fluid" alt="" />
+            <!-- <img src="./assets/illustrations/card-green.png" class="img-fluid" alt="" /> -->
           </div>
-          <div class="col-md p-5">
+          <div class="col-md order-0 order-md-1">
             <h2>Secure Payment</h2>
             <p class="lead">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -306,44 +357,106 @@
 
 
   <!-- pricing plans -->
-  <section id="pricing" class="bg-light mt-5">
+  <!-- bg-light -->
+  <section id="pricing" class=" mt-5">
     <div class="container-lg">
       <div class="text-center">
         <h2>Account Types</h2>
         <p class="lead text-muted">Choose an account that suit you.</p>
       </div>
 
+<div class="row justify-content-center">
 
-
-      <table class="table table-bordered border-primary">
+      <table class="table table-bordered table-dark col-12">
         <thead>
           <tr>
            
             <th scope="col " class="b" ></th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Personal</th>
+            <th scope="col">Corporate</th>
           </tr>
         </thead>
         <tbody>
+          
           <tr>
-           
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+
+            <td class=" " aria-current="true"> NIN Verification</td>
+            <td> ✓ </td>
+            <td> ✓ </td>
           </tr>
           <tr>
           
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
+            <td class=" ">BVN Verification</td>
+            <td> ✓ </td>
+            <td> ✓ </td>
           </tr>
           <tr>
-            
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
+          
+            <td class=" ">Driver License Verification</td>
+            <td> ✓ </td>
+            <td> ✓ </td>
           </tr>
+          <tr>
+          
+            <td class=" ">Credit Check Verification</td>
+            <td> ✓ </td>
+            <td> ✓ </td>
+          </tr>
+          <tr>
+          
+            <td class=" ">Address Verification</td>
+            <td> ✓ </td>
+            <td> ✓ </td>
+          </tr>
+
+          <tr>
+          
+            <td class=" ">BVN Boolean</td>
+            <td> ✓ </td>
+            <td> ✓ </td>
+          </tr>
+
+          <tr>
+          
+            <td class=" ">Multiple Identity Check</li>
+            <td> ✓ </td>
+            <td> ✓ </td>
+          </tr>
+
+          <tr>
+          
+            <td class=" ">Automatic Wallet Funding</li>
+            <td> ✓ </td>
+            <td> ✓ </td>
+          </tr>
+          <tr>
+          
+            <td class=" ">Report Download</li>
+            <td> ✓ </td>
+            <td> ✓ </td>
+          </tr>
+          
+
+          <tr>
+          
+            <td class=" ">Create Employee Accounts</li>
+            <td> ✓ </td>
+            <td> ✓ </td>
+          </tr>
+         
         </tbody>
       </table>
+
+      <div class="row justify-content-center mt-4">
+        <button class="btn btn-lg btn-secondary col-4" style="background:#3BB75E">Personal</button>
+        <button class="btn btn-lg btn-secondary col-4 ms-3"> Corporate </button>
+      </div>    
+
+    </div>
+
+
+
+     
 
 
 
@@ -459,9 +572,7 @@
         <p class="lead text-muted">What Questions Do you Have?</p>
       </div>
       <div class="row my-5 g-5 justify-content-around align-items-center">
-        <div class="col-6 col-lg-4">
-          <img src="./assets/undraw_Questions_re_1fy7.svg" class="img-fluid" alt="ebook">
-        </div>
+        
         <div class="col-lg-6">
 
           <!-- accordion -->
@@ -601,6 +712,11 @@
 
 
           </div>
+        </div>
+        <div class="col-6 col-lg-5">
+          <!-- <div id="animContainer"> </div> -->
+          <img src="./assets/undraw_Questions_re_1fy7.svg" class="img-fluid" alt="ebook">
+          <!-- <img src="./assets/undraw_Questions_re_1fy7.svg" class="img-fluid" alt="ebook"> -->
         </div>
       </div>
   </section>
@@ -755,13 +871,47 @@
     </div>
   </section>
 
+
+  <!-- Contact & Map -->
+  <section class="p-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md">
+          <h2 class="text-center mb-4">Contact Info</h2>
+          <ul class="list-group list-group-flush lead">
+            <li class="list-group-item">
+              <span class="fw-bold">Main Location:</span> 50 Main st Boston MA
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold">Enrollment Phone:</span> (555) 555-5555
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold">Student Phone:</span> (333) 333-3333
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold">Enrollment Email:</span> (555)
+              enroll@frontendbc.test
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold">Student Email:</span>
+              student@frontendbc.test
+            </li>
+          </ul>
+        </div>
+        <div class="col-md">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- get updates / modal trigger -->
-  <section class="bg-light">
+  <!-- <section class="bg-light">
     <div class="container">
       <div class="text-center">
         <h2>Stay in The Loop</h2>
         <p class="lead">Get the latest updates as they happen...</p>
       </div>
+      
       <div class="row justify-content-center">
         <div class="col-md-8 text-center">
           <p class="text-muted my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero exercitationem
@@ -774,7 +924,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- modal itself -->
   <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
@@ -822,12 +972,33 @@
     </div>
   </div>
 
+ 
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+
+    <script>
+      mapboxgl.accessToken =
+        'pk.eyJ1Ijoia29sYWRlYWZlZXoiLCJhIjoiY2tzNmxoOWJvMnB5YzJ2bXNrZWtoZWw1eSJ9.L0efw6O6WqZuq9qLsW9yQA'
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [3.4077320957059687,6.427616372216442], 
+        zoom: 17,
+      })
+      
+    </script>
+
+  
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js'></script> 
+  <script  src="./js/anim.js"></script>
+
+
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
+<!-- loitte -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.12/lottie.min.js" integrity="sha512-Dr2QERtNqLw0I06FR7G73CjiWvR4roRMDNTbOGp+qeGhVjEl0xs4AKZzqVFREqdOL3t8ei7H9y9XUcpYVkwEIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<!-- end -->
 
 <script src="./js/particle.js"></script>
 
