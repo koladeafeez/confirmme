@@ -7,7 +7,8 @@
   <title>Confirmme</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="./assets/resources/bootstrap/dist/css/bootstrap.min.css">
-  <link href="./css/main.min.css" rel="stylesheet">
+  <!-- <link href="./css/main.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="./sass/main.css">
   <link rel="stylesheet" href="./css/loader.css">
   <link
   href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
@@ -19,8 +20,16 @@ html{
   scroll-behavior: smooth;
 }
 
-body{
+body,html{
+  font-family: var(--introText);
+  /* font-family: var(--headerText); */
   margin-right: 0;
+  overflow-x: hidden;
+  max-width: 100%;
+    overflow-x: hidden;
+    --nav-load-time: 300ms;
+    --nav-link-time: 500ms;
+    --article-load-delay:calc(var(--nav-load-time) + var(--nav-link-time));
 }
 
 .intro-text{
@@ -58,9 +67,9 @@ body{
       min-height: 3rem;
     }
 
-    .display-2{
-      font-family: var(--headerText);
-    }
+    /* .display-2{
+      font-family: var(--headerText); 
+    } */
   .primary-bg{
     /*first395054   last #00d3a9  */  
     /* 076437 */
@@ -73,6 +82,12 @@ body{
 
   .wheat-background {
     background-color: #F1FEF4;
+  }
+
+  .background-map{
+    background: url('./assets/worldmap.png');
+    background-position: center;
+    background-size: cover;
   }
 
   #pricing {
@@ -93,11 +108,241 @@ body{
    clip-path: polygon(100% 0, 100% 80%, 0 100%, 0 0); 
 }
 
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+.burger{
+  background: #157a49;
+}
+.navbar{
+  background: #157a49;
+  
+}
+
+.nav-link{
+  color:#fff;
+  font-size: large;
+}
+
+}
+
 @media only screen and (min-width: 600px) {
   .table {
     width: 75%;
   }
+  .Why-Use-items{
+    width: 100%;
+  }
 }
+
+/* gsap */
+pin-up {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: green;
+}
+
+
+
+.content-wrap{
+  position:relative;
+  width: 333px;
+  height: 222px;
+  border-radius: 4px;
+  background-color: limegreen;
+  margin-right: 111px;
+  margin-top: -10px;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  background-color: limegreen;
+  border-radius: 4px;
+  font-size: 30px;
+  color: white;
+}
+
+
+
+.sideline {
+  position: absolute;
+  top: calc(50vh - 111px - 7px);
+  /* calc(50vw + 0px) */
+  left: 0;
+  height: 222px;
+  width: 3px;
+  background-color: orange;
+
+  transform: scaleY(0);
+  transform-origin: top center;
+  z-index: 1;
+}
+
+
+
+.text-wrap {
+  height: 100vh;
+  width: 333px;
+  display: flex;
+  
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  
+  background-color: green;
+}
+
+.text {
+  font-size: 30px;
+  width: 100px;
+  height: 50px;
+  text-transform: uppercase;
+  color: white;
+}
+
+
+
+.below {
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  background-color: white;
+}
+
+.below span {
+  color: green;
+  font-size: 30px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50vh);
+}
+
+
+
+.footer {
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  background-color: lightgrey;
+}
+
+
+.spacer {
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  background: white;
+}
+
+.spacer span {
+  color: green;
+  font-size: 30px;
+}
+
+nav{
+  animation: nav-load var(--nav-load-time) ease-in;
+}
+
+nav li {
+  animation-name: nav-link-load;
+  animation-duration: var(--nav-link-time);
+  animation-timing-function: ease-in;
+  animation-delay:var(--nav-load-time);
+  transform: scale(0);
+  animation-fill-mode: forwards;
+
+}
+
+nav li:first-child{
+animation-name: nav-firstlink-load;
+transform: translateX(-1000%);
+}
+
+.intro-heading{
+  animation: intro-heading-load 300ms ease-in calc(var(--article-load-delay));
+  animation-fill-mode: forwards;
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+.intro-paragraph{
+  animation: intro-heading-load 300ms ease-in calc(var(--article-load-delay) + 200ms);
+  animation-fill-mode: forwards;
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+.intro-btn{
+  animation: intro-heading-load 300ms ease-in calc(var(--article-load-delay) + 400ms);
+  animation-fill-mode: forwards;
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+@keyframes nav-load{
+  0%{
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes nav-link-load{
+  0%{
+    transform: scale(0);
+  }
+  90%{
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes nav-firstlink-load{
+  0%{
+    transform: translateX(-1000%);
+  }
+  90%{
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes intro-heading-load{
+  0%{
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+ 
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+
   </style>
 
   <!-- <script>
@@ -148,13 +393,22 @@ body{
       <!-- toggle button for mobile nav -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
         aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <div class="container">
+          <div id="hamburger" onclick="this.classList.toggle('open');">
+            <svg width="50" height="40" viewBox="0 0 100 100">
+              <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+              <path class="line line2" d="M 20,50 H 80" />
+              <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+            </svg>
+          </div>
+        </div>
       </button>
 
       <!-- navbar links -->
       <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
+        <ul class="navbar-nav text-center burger">
+          <li class="nav-item ">
             <a class="nav-link" href="#topics">About</a>
           </li>
           <li class="nav-item">
@@ -169,7 +423,7 @@ body{
           <li class="nav-item ">
             <a class="nav-link" href="#pricing">Login</a>
           </li>
-          <li class="nav-item ms-2 d-none d-md-inline">
+          <li class="nav-item ms-2 ">
             <a class="btn btn-secondary complimentary-bg" href="#pricing">Create Account</a>
           </li>
 
@@ -185,14 +439,14 @@ body{
   <section id="intro" >
     <div class="container-lg">
       <div class="row g-4 justify-content-center align-items-center" >
-        <div class="col-md-5 text-md-center text-md-start intro-text ">
-          <h1>
-            <div class="display-2">Identity Verification </div>
-            <div class="display-5 text-muted">Makes Easy</div>
+        <div class="col-md-5 text-start  ">
+          <h1 > 
+            <div class="display-2 intro-heading main-heading" style="font-size: larger;">Identity Verification </div>
+            <div class="display-5 text-muted intro-heading main-heading" style="font-size: larger;">Makes Easy</div>
           </h1>
-          <p class="lead my-3 text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
+          <p class="lead my-3 text-muted intro-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
             dignissimos?</p>
-         <a href="#pricing" class="btn btn-secondary btn-lg complimentary-bg">Get Started For Free</a>
+         <a href="#pricing" class=" intro-btn btn btn-secondary btn-lg complimentary-bg">Get Started For Free</a>
           <!-- open sidebar / offcanvas -->
         <!--  <a href="#sidebar" class="d-block mt-3" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar">
             Explore my other books
@@ -201,7 +455,7 @@ body{
         <div class="col-md-5 text-center primary-bg banner  d-md-block">
           <!-- tooltip -->
           <span class="tt" title="Net Ninja Pro book cover">
-            <img src="./assets/hero-image-1.677edc5.png" class="img-fluid " alt="ebook">
+            <img src="./assets/Confirmme Facial Recognition.png" class="img-fluid " alt="ebook">
           </span>
           
         </div>
@@ -273,10 +527,11 @@ body{
       <div class="container">
         <div class="row align-items-center justify-content-between">
           <div class="col-md order-1 order-md-0 ">
-            <img src="./assets/acquire-users.png" class="img-fluid" alt="" />
+            <!-- <img src="./assets/acquire-users.png" class="img-fluid" alt="" /> -->
+            <img src="./assets/Confirmme Smooth Identity Verification (1).png" loading="lazy" class="img-fluid" alt="" />
           </div>
           <div class="col-md  order-0 order-md-1">
-            <h2>Smooth Identity Verification</h2>
+            <h2 class="main-heading">Smooth Identity Verification</h2>
             <p class="lead">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Similique deleniti possimus magnam corporis ratione facere!
@@ -304,7 +559,7 @@ body{
       <div class="container">
         <div class="row align-items-center justify-content-between">
           <div class="col-md pt-1 pb-2 px-2 p-md-5 ">
-            <h2>User Friendly & Easy to Use</h2>
+            <h2 class="main-heading">User Friendly & Easy to Use</h2>
             <p class="lead">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Similique deleniti possimus magnam corporis ratione facere!
@@ -320,7 +575,8 @@ body{
             </a>
           </div>
           <div class="col-md">
-            <img src="./assets/fraud-detection.png" class="img-fluid" alt="" />
+            <!-- <img src="./assets/fraud-detection.png" class="img-fluid" alt="" /> -->
+            <img src="./assets/Confirmme Easy to use (1).png" class="img-fluid" alt="" />
           </div>
         </div>
       </div>
@@ -330,11 +586,12 @@ body{
       <div class="container">
         <div class="row align-items-center justify-content-between">
           <div class="col-md order-1 order-md-0">
-            <img src="./assets/platforms.png" class="img-fluid" alt="" />
+            <!-- <img src="./assets/platforms.png" class="img-fluid" alt="" /> -->
+            <img src="./assets/Confirmme Secure Payment.svg" class="img-fluid" alt="" />
             <!-- <img src="./assets/illustrations/card-green.png" class="img-fluid" alt="" /> -->
           </div>
           <div class="col-md order-0 order-md-1">
-            <h2>Secure Payment</h2>
+            <h2 class="main-heading">Secure Payment</h2>
             <p class="lead">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Similique deleniti possimus magnam corporis ratione facere!
@@ -353,8 +610,101 @@ body{
       </div>
     </section>
 
+    <section id="Why-Use" class=" pt-2 pb-2 px-2 p-md-5 p-lg-5 mt-4">
+    <div class="container">
+      <p class="display-6 mb-0 fw-bolder">Why</p>
+      <p class="fw-bolder"> Use ConfirmMe </p>
+      <div class="row Why-Use-row">
 
 
+        <div class=" col-sm-6  col-lg-3  row flex-md-column m-0 px-0 d-sm-block mb-md-4 Why-Use-Cont ">
+          <img src="./assets/finacialservice.svg" class="col-3 h-25 mt-2 mt-sm-0 mb-md-3"  alt="">
+          <div class="col-9 px-0 Why-Use-items">
+          <p class=" lead mb-1" style="font-weight: 500;">NIN Verification</p>
+          <p>
+            
+            Verify customer's name and date of birth by checking one or multiple identity documents.
+          </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 row flex-md-column m-0 px-0 d-sm-block">
+          <img src="./assets/finacialservice.svg" class=" col-3 h-25 mt-2 mt-sm-0 mb-md-3" alt="">
+          <div class="col-9 px-0 Why-Use-items">
+          <p class=" lead mb-1" style="font-weight: 500;">NIN Verification</p>
+          <p>
+            
+            Verify customer's name and date of birth by checking one or multiple identity documents.
+          </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 row flex-md-column m-0 px-0 d-sm-block">
+          <img src="./assets/finacialservice.svg" class="col-3 mt-2 mt-sm-0 h-25 mb-md-3" alt="">
+          <div class="col-9 px-0 Why-Use-items">
+          <p class=" lead mb-1" style="font-weight: 500;">NIN Verification</p>
+          <p>
+            
+            Verify customer's name and date of birth by checking one or multiple identity documents.
+          </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 row flex-md-column m-0 px-0 d-sm-block">
+          <img src="./assets/finacialservice.svg" class="col-3 mt-2 mt-sm-0 h-25 mb-md-3" alt="">
+          <div class="col-9 px-0 Why-Use-items">
+          <p class=" lead mb-1" style="font-weight: 500;">NIN Verification</p>
+          <p>
+            
+            Verify customer's name and date of birth by checking one or multiple identity documents.
+          </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 row flex-md-column m-0 px-0 d-sm-block">
+          <img src="./assets/finacialservice.svg" class="col-3 mt-2 mt-sm-0 h-25 mb-md-3" alt="">
+          <div class="col-9 px-0 Why-Use-items">
+          <p class=" lead mb-1" style="font-weight: 500;">NIN Verification</p>
+          <p>
+            
+            Verify customer's name and date of birth by checking one or multiple identity documents.
+          </p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+
+    <!-- <div class="container">
+      <div class="row justify-content-between">
+      <div class="wrapper col-4">
+        <div class="pin-up">
+
+            <div class="sideline"></div>
+          
+            <div class="display-3">Why Use ConfirmMe</div>
+
+          <div class="text-wrap">
+            <div class="text text-dark">Greensock</div>
+            <div class="text text-dark">ScrollTrigger</div>
+            <div class="text text-dark">Creativity</div>
+            <div class="text text-dark">Versatility</div>
+            <div class="text text-dark">Awesomeness</div>  
+          </div>
+          <div class="content-wrap">
+              <span class="content content-0 initial">Greensock</span>
+              <span class="content content-1">ScrollTrigger</span>
+              <span class="content content-2">Creativity</span>
+              <span class="content content-3">Versatility</span>
+              <span class="content content-4 remaining">Awesomeness</span>
+            </div> 
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <img src="./assets/fraud-detection.png" class="img-fluid" alt="">
+        <img src="./assets/platforms.png" class="img-fluid" alt="">
+      </div>
+        </div>
+    </div> -->
+   
 
   <!-- pricing plans -->
   <!-- bg-light -->
@@ -566,14 +916,14 @@ body{
 
   <!-- topics at a glance -->
   <section id="topics">
-    <div class="container-md">
+    <div class="container-md background-map">
       <div class="text-center">
         <h2>Frequently Ask Questions</h2>
-        <p class="lead text-muted">What Questions Do you Have?</p>
+        <p class="lead text-muted mb-0">What Questions Do you Have?</p>
       </div>
-      <div class="row my-5 g-5 justify-content-around align-items-center">
+      <div class="row mt-0 my-md-5 g-5 justify-content-around align-items-center">
         
-        <div class="col-lg-6">
+        <div class="col-lg-6 order-1 order-md-0 ">
 
           <!-- accordion -->
           <div class="accordion" id="chapters">
@@ -713,7 +1063,13 @@ body{
 
           </div>
         </div>
-        <div class="col-6 col-lg-5">
+
+
+        
+
+
+
+        <div class="col-6 col-lg-5 order-0 order-md-1">
           <!-- <div id="animContainer"> </div> -->
           <img src="./assets/undraw_Questions_re_1fy7.svg" class="img-fluid" alt="ebook">
           <!-- <img src="./assets/undraw_Questions_re_1fy7.svg" class="img-fluid" alt="ebook"> -->
@@ -722,7 +1078,7 @@ body{
   </section>
 
   <!-- reviews list -->
-  <section id="reviews" class="bg-altlight">
+  <section id="reviews" class="bg-altlight background-map">
     <div class="container-lg">
       <div class="text-center">
         <h2><i class="bi bi-stars text-altdark"></i>Customers Reviews</h2>
@@ -774,40 +1130,19 @@ body{
                 repellat in id quisquam.</p>
               <small>Review by Mario</small>
             </div>
-            <div class="list-group-item py-3">
-              <div class="pb-2">
-                <i class="bi bi-star-fill text-altdark"></i>
-                <i class="bi bi-star-fill text-altdark"></i>
-                <i class="bi bi-star-fill text-altdark"></i>
-                <i class="bi bi-star-fill text-altdark"></i>
-                <i class="bi bi-star-fill text-altdark"></i>
-              </div>
-              <h5 class="mb-1">A must-buy for every aspiring web dev</h5>
-              <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur error veniam sit expedita
-                est illo maiores neque quos nesciunt, reprehenderit autem odio commodi labore praesentium voluptate
-                repellat in id quisquam.</p>
-              <small>Review by Mario</small>
-            </div>
-            <div class="list-group-item py-3">
-              <div class="pb-2">
-                <i class="bi bi-star-fill text-altdark"></i>
-                <i class="bi bi-star-fill text-altdark"></i>
-                <i class="bi bi-star-fill text-altdark"></i>
-                <i class="bi bi-star-fill text-altdark"></i>
-                <i class="bi bi-star-half text-altdark"></i>
-              </div>
-              <h5 class="mb-1">A must-buy for every aspiring web dev</h5>
-              <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur error veniam sit expedita
-                est illo maiores neque quos nesciunt, reprehenderit autem odio commodi labore praesentium voluptate
-                repellat in id quisquam.</p>
-              <small>Review by Mario</small>
-            </div>
+           
+           
           </div>
         </div>
       </div>
     </div>
   </section>
 
+
+
+
+
+  
   <!-- contact form -->
   <!-- form-control, form-label, form-select, input-group, input-group-text -->
   <section id="contact">
@@ -817,24 +1152,24 @@ body{
         <h2>Get in Touch</h2>
         <p class="lead">Questions to ask? Fill out the form to contact me directly...</p>
       </div>
-      <div class="row justify-content-center my-5">
+      <div class="row justify-content-center my-3">
         <div class="col-lg-6">
 
           <form>
-            <label for="email" class="form-label">Email address:</label>
+            <!-- <label for="email" class="form-label">Email address:</label> -->
             <div class="input-group mb-4">
               <span class="input-group-text">
                 <i class="bi bi-envelope-fill text-secondary"></i>
               </span>
-              <input type="text" id="email" class="form-control" placeholder="e.g. mario@example.com" />
+              <input type="text" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" title="Input Valid Email Address" class="form-control" placeholder="e.g. janedoe@example.com" />
               <!-- tooltip -->
               <span class="input-group-text">
-                <span class="tt" data-bs-placement="bottom" title="Enter an email address we can reply to.">
+                <span class="tt" data-bs-placement="bottom"  title="Enter an email address we can reply to.">
                   <i class="bi bi-question-circle text-muted"></i>
                 </span>
               </span>
             </div>
-            <label for="name" class="form-label">Name:</label>
+            <!-- <label for="name" class="form-label">Name:</label> -->
             <div class="mb-4 input-group">
               <span class="input-group-text">
                 <i class="bi bi-person-fill text-secondary"></i>
@@ -847,7 +1182,7 @@ body{
                 </span>
               </span>
             </div>
-            <label for="subject" class="form-label">What is your question about?</label>
+            <!-- <label for="subject" class="form-label">What is your question about?</label>
             <div class="mb-4 input-group">
               <span class="input-group-text">
                 <i class="bi bi-chat-right-dots-fill text-secondary"></i>
@@ -857,10 +1192,10 @@ body{
                 <option value="content">Content query</option>
                 <option value="other">Other query</option>
               </select>
-            </div>
+            </div> -->
             <div class="mb-4 mt-5 form-floating">
               <textarea class="form-control" id="query" style="height: 140px" placeholder="query"></textarea>
-              <label for="query">Your query...</label>
+              <label for="query">What Your Query...</label>
             </div>
             <div class="mb-4 text-center">
               <button type="submit" class="btn btn-secondary">Submit</button>
@@ -972,6 +1307,7 @@ body{
     </div>
   </div>
 
+  <!-- Map -->
  
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
 
@@ -987,7 +1323,9 @@ body{
       
     </script>
 
-  
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js'></script> 
   <script  src="./js/anim.js"></script>
@@ -1021,6 +1359,17 @@ body{
 
 
   </script>
+  <!-- Start of ChatBot (www.chatbot.com) code -->
+<script type="text/javascript">
+  window.__be = window.__be || {};
+  window.__be.id = "61139e77dd36680007111f68";
+  (function() {
+      var be = document.createElement('script'); be.type = 'text/javascript'; be.async = true;
+      be.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.chatbot.com/widget/plugin.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(be, s);
+  })();
+</script>
+<!-- End of ChatBot code -->
 </body>
 
 </html>
