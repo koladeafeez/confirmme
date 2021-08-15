@@ -8,6 +8,16 @@ var animation = bodymovin.loadAnimation({
 
 // https://assets9.lottiefiles.com/packages/lf20_5n8yfkac.json
 
+gsap.registerPlugin(ScrollTrigger);
+gsap.to("progress", {
+  value: 100,
+  ease: "none",
+  scrollTrigger: {
+    trigger: "#mySection",
+    scrub: 0.3,
+  },
+});
+
 gsap.set(".content:not(.initial)", { autoAlpha: 0 });
 
 var headlines = gsap.utils.toArray(".text");
