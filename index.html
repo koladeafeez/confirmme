@@ -31,7 +31,7 @@ body,html{
     --nav-link-time: 500ms;
     --article-load-delay:calc(var(--nav-load-time) + var(--nav-link-time));
 }
-.why-use-text{
+/* .why-use-text{
 font-weight: 600;
     font-size: 1.15em;
     color: #868e96;
@@ -40,7 +40,7 @@ font-weight: 600;
     margin-bottom: 0;
     letter-spacing: .037em;
     font-optical-sizing: auto;
-}
+} */
 /* 
 .api-container{
   display: flex;
@@ -59,6 +59,10 @@ font-weight: 600;
   justify-content: center !important;
 
 }
+/* 
+#intro{
+  position: absolute;
+} */
 
 .intro-text{
   background: url('./assets/shape-005.png');
@@ -160,6 +164,20 @@ font-weight: 600;
 .fluid-source{
   width: 100% !important;
 }
+
+table {
+  width:90% !important;
+}
+
+section{
+  margin-bottom: 2rem;
+}
+
+#intro-text-container{
+  position: relative !important;
+  /* top: 30%; */
+}
+
 }
 
 @media only screen and (min-width: 600px) {
@@ -169,7 +187,21 @@ font-weight: 600;
   .Why-Use-items{
     width: 100%;
   }
+
+  .nav-item{
+    padding-right: 2rem;
+  }
+
 }
+
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .nav-link{   }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+}
+
+
 
 /* gsap */
 pin-up {
@@ -242,7 +274,7 @@ pin-up {
 
 .text-wrap {
   /* height: 100vh; */
-  width: 333px;
+  /* width: 333px;
   display: flex;
   
   flex-direction: column;
@@ -253,7 +285,7 @@ pin-up {
   height: 300px;
   max-height: 300px;
   min-height: 300px;
-  
+   */
   /* background-color: green; */
 }
 
@@ -308,7 +340,16 @@ pin-up {
   font-size: 30px;
 }
 
-nav{
+#particle-js{
+  animation-name: nav-link-load;
+  animation-duration: var(--nav-link-time);
+  animation-timing-function: ease-in;
+  animation-delay:var(--nav-load-time);
+  transform: scale(0);
+  animation-fill-mode: forwards;
+}
+
+/* nav{
   animation: nav-load var(--nav-load-time) ease-in;
 }
 
@@ -320,12 +361,12 @@ nav li {
   transform: scale(0);
   animation-fill-mode: forwards;
 
-}
+} */
 
-nav li:first-child{
+/* nav li:first-child{
 animation-name: nav-firstlink-load;
 transform: translateX(-1000%);
-}
+} */
 
 .intro-heading{
   animation: intro-heading-load 300ms ease-in calc(var(--article-load-delay));
@@ -446,6 +487,54 @@ progress::-moz-progress-bar {
   background: #3BB75E !important;
 }
 
+/* Solution PopOver */
+#hover-pop{
+z-index: 1000000;
+position: absolute;
+}
+
+
+
+body{
+  /* opacity: 0.3; */
+}
+
+#intro{
+  /* opacity: 0.2; */
+}
+#hover-pop-row{
+height: 200px;
+}
+#hover-pop-items{
+
+}
+
+.show_pop{
+  display: flex !important;
+}
+
+.nav-white{
+  background: #fff;
+}
+
+#intro-text-container{
+  position: absolute;
+  top: 30%;
+}
+
+/* #particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+}
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+} */
+
+
   </style>
 
   <!-- <script>
@@ -485,16 +574,16 @@ progress::-moz-progress-bar {
   </div> -->
 <!-- end loader -->
 
-<div class=" intro-section wheat-background " >
+<div class=" intro-section wheat-background nav-white " >
   <!-- navbar -->
-  <nav class="navbar navbar-expand-md navbar-light pt-2 pb-4">
+  <nav class="navbar navbar-expand-md navbar-light pt-2 pb-0">
     <div class="container-xxl">
       <!-- navbar brand / title -->
       <a class="navbar-brand" href="#intro">
         <span class="text-secondary fw-bold">
          <img src="./assets/logo.png">
         </span>
-      </a>
+      </a> 
       <!-- toggle button for mobile nav -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
         aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -512,19 +601,25 @@ progress::-moz-progress-bar {
       </button>
 
       <!-- navbar links -->
-      <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+      <div class="collapse navbar-collapse justify-content-end align-center nav-fix " id="main-nav">
         <ul class="navbar-nav text-center burger">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"   href="#About" onmouseover="handlePopUp()" onmouseout="handlePopOut()"> Solutions </a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">  Solutions </a>
+             <ul class="dropdown-menu">
+             <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
+             <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
+             <li><a class="dropdown-item" href="#"> Submenu item 3 </a></li>
+             </ul>
+         </li> -->
+         
           <li class="nav-item ">
-            <a class="nav-link" href="#topics">About</a>
+            <a class="nav-link" href="#R"> Support </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#reviews"> FAQ </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#reviews"> Support </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Developer</a>
+            <a class="nav-link" href="#contact"> Docs</a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="#pricing">Login</a>
@@ -534,30 +629,85 @@ progress::-moz-progress-bar {
           </li>
 
         </ul>
+
+        
+
+
       </div>
     </div>
   </nav>
 
 
+<div class=" m-0 p-4 pt-0 bg-white border-2 container-fluid w-100 d-none" id="hover-pop" style="height: 200px;border:2px solid #fff" onmouseover="handlePopUp()" onmouseout="handlePopOut()">
+  <hr />
+  <div class="row" id="hover-pop-row h-50"  style="height: 150px;" >
+<div class="col-3  m-0 row  hover-pop-items " id="hover-pop-items" style=" border-right:1px solid #818181" >
+  <div class="col-4 p-0 m-0">
+    <img class="w-30 p-0 m-0" width="100%" src="./assets/illustrations/individual.svg" alt="Card image cap"> 
+<h5>individuals</h5>
+    </div>
+    <div class="col-8 p-0 m-0">
+      <p class="d-inline">Find Out Services You Will Enjoy </p>
+      <p>With A Personal Account</p>
+    </div>
 
+</div>
+<div class="col-3 m-0  row  hover-pop-items" id="hover-pop-items" style=" border-right:1px solid #818181">
+  <div class="col-4 p-0 m-0">
+    <img class="w-30 p-0 m-0" width="100%" src="./assets/illustrations/corporate.svg" alt="Card image cap">
+    <h5>Corporate</h5>
+
+    </div>
+    <div class="col-8 p-0 m-0">
+      <p class="d-inline">Find Out Services You Will Enjoy With A Corporate Account</p>
+    </div>
+
+</div>
+<div class="col-3 m-0 row  hover-pop-items" id="hover-pop-items" style=" border-right:1px solid #818181">
+  <div class="col-4 p-0 m-0">
+    <img class="w-30 p-0 m-0" width="100%" src="./assets/illustrations/Apipop.svg" alt="Card image cap">
+    <h5>Restful Api</h5>
+
+    </div>
+    <div class="col-8 p-0 m-0">
+      <p class="d-inline">Find Out Verification Api That Confirmme Provides </p>
+    </div>
+
+</div>
+
+<div class="col-3" style="height: 100%" >
+ <img class="img-fluid" height="200px" src="./assets/illustrations/DrawKit - Economy & Finance/DrawKit - Economy & Finance/5 - RECRUITING.svg" alt="">
+
+</div>
+</div>
+</div>
 
   <!-- main image & intro text -->
-  <section id="intro" >
+  
+  <section id="intro"  >
     <div class="container-sm">
+      
       <div class="row g-4 justify-content-center align-items-center" >
-        <div class="col-md-5 text-start  ">
+        
+        <div class="col-md-5 text-start ">
+          <div id="particles-js" class="d-none d-md-block"></div>
+          <div id="intro-text-container">
           <h1 > 
-            <div class="display-2 intro-heading main-heading" style="font-size: larger;">Identity Verification </div>
-            <div class="display-5 text-muted intro-heading main-heading" style="font-size: larger;">Makes Easy</div>
+            <div class="display-2 intro-heading main-heading" style="font-size: larger;">Identity Verification  </div>
+            <div class="display-5 text-muted intro-heading main-heading" style="font-size: larger;">Made Easy</div>
           </h1>
-          <p class="lead my-3 text-muted intro-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
-            dignissimos?</p>
+          <p class="lead my-3 text-muted intro-paragraph" style="word-wrap: break-word">manually verifying diverse identity documents<br/> is a mammoth proposition for any business
+          </p>
+          <p class="lead " style="font-size: medium; font-weight: 200;">ConfirmMe can help...
+          </p>
          <a href="#pricing" class=" intro-btn btn btn-secondary btn-lg complimentary-bg">Get Started For Free</a>
           <!-- open sidebar / offcanvas -->
         <!--  <a href="#sidebar" class="d-block mt-3" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar">
             Explore my other books
           </a> -->
         </div>
+     
+     </div>
         <div class="col-md-5 text-center primary-bg banner mx-4  mx-md-none d-md-block">
           <!-- tooltip -->
           <span class="tt" title="Net Ninja Pro book cover">
@@ -567,7 +717,8 @@ progress::-moz-progress-bar {
         </div>
         
       </div>
-    </div>
+ 
+  </div>
     
 
     <!-- Trusted By -->
@@ -623,7 +774,7 @@ progress::-moz-progress-bar {
 
 
   </section>
-</div>
+
 
 
 
@@ -637,20 +788,17 @@ progress::-moz-progress-bar {
             <img src="./assets/Confirmme Smooth Identity Verificationl.svg" loading="lazy" class="img-fluid" alt="" />
           </div>
           <div class="col-md  order-0 order-md-1">
-            <h2 class="main-heading">Smooth Identity Verification</h2>
+            <h2 class="main-heading">Seamless Identity Verification</h2>
             <p class="lead">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Similique deleniti possimus magnam corporis ratione facere!
+              ConfirmMe is not application or system-intrusive, meaning our products can seamlessly integrate into any existing platform. It is a licensable design that can be integrated into OEM systems and products while ensuring user privacy and eliminates the need for a government or corporate-based database system.
             </p>
-            <p>
+            <!-- <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
               reiciendis eius autem eveniet mollitia, at asperiores suscipit
               quae similique laboriosam iste minus placeat odit velit quos,
               nulla architecto amet voluptates?
-            </p>
-            <a href="#" class="btn btn-light mt-3">
-              <i class="bi bi-chevron-right"></i> Read More
-            </a>
+            </p> -->
+
           </div>
         </div>
       </div>
@@ -667,18 +815,15 @@ progress::-moz-progress-bar {
           <div class="col-md pt-1 pb-2 px-2 p-md-5 ">
             <h2 class="main-heading">User Friendly & Easy to Use</h2>
             <p class="lead">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Similique deleniti possimus magnam corporis ratione facere!
+              ConfirmMe offers web service, a widget for non-API consuming customers, and unique API service for large customers who require to perform Bulk verifications. If you want to use the widget or integrate the verification solution via an API (Application Programming Interface), our team of specialists is ready to assist you. This option allows the full customization of the verification service per your preferences.
             </p>
-            <p>
+            <!-- <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
               reiciendis eius autem eveniet mollitia, at asperiores suscipit
               quae similique laboriosam iste minus placeat odit velit quos,
               nulla architecto amet voluptates?
-            </p>
-            <a href="#" class="btn btn-light mt-3">
-              <i class="bi bi-chevron-right"></i> Read More
-            </a>
+            </p> -->
+
           </div>
           <div class="col-md">
             <!-- <img src="./assets/fraud-detection.png" class="img-fluid" alt="" /> -->
@@ -688,35 +833,31 @@ progress::-moz-progress-bar {
       </div>
     </section>
 
-    <section id="learn" class=" pt-2 pb-2 px-2 p-md-5 p-lg-5 mt-4">
+    <section id="learn" class="mx-4 pt-2 pb-2 px-2 p-md-5 p-lg-5 mt-4 mb-5">
       <div class="container">
         <div class="row align-items-center justify-content-between">
-          <div class="col-md order-1 order-md-0">
-            <!-- <img src="./assets/platforms.png" class="img-fluid" alt="" /> -->
-            <img src="./assets/Confirmme Secure Paymentl.svg" class="img-fluid" alt="" />
-            <!-- <img src="./assets/illustrations/card-green.png" class="img-fluid" alt="" /> -->
+          <div class="col-md order-1 order-md-0 mb-5">
+           
+            <img src="./assets/widget.png" class="img-fluid" alt="" />
+      
           </div>
           <div class="col-md order-0 order-md-1">
-            <h2 class="main-heading">Secure Payment</h2>
+            <!-- <h2 class="main-heading">Secure Payment</h2> -->
+            <h2 class="main-heading">ConfirmMe Widget</h2>
             <p class="lead">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Similique deleniti possimus magnam corporis ratione facere!
+              ConfirmMe offers a verification widget feature that is interactive and customizable and can easily be hosted on a client’s platform – mobile or web to provide an interactive verification identification and authorization experience for the end-user during onboarding
             </p>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
-              reiciendis eius autem eveniet mollitia, at asperiores suscipit
-              quae similique laboriosam iste minus placeat odit velit quos,
-              nulla architecto amet voluptates?
-            </p>
-            <a href="#" class="btn btn-light mt-3">
-              <i class="bi bi-chevron-right"></i> Read More
-            </a>
+            <button class="btn btn-primary">Watch Demo</button>
+            <!-- <p>
+              ConfirmMe® integrates to various data sources via a very secure tunnel with the latest encryption standards for data security
+            </p> -->
+
           </div>
         </div>
       </div>
     </section>
 
-    <section id="Why-Use" class=" pt-2 pb-2 px-2 p-md-5 p-lg-5 mt-4 d-md-none">
+    <section id="Why-Use" class=" mt-5 pt-2 pb-2 px-2 p-md-5 p-lg-5 mt-4 d-md-none">
     <div class="container">
       <p class="display-6 mb-0 fw-bolder">Why</p>
       <p class="fw-bolder"> Use ConfirmMe </p>
@@ -726,10 +867,10 @@ progress::-moz-progress-bar {
         <div class=" col-sm-6  col-lg-3  row flex-md-column m-0 px-0 d-sm-block mb-md-4 Why-Use-Cont ">
           <img src="./assets/illustrations/ninv.svg" class="col-3 h-25 mt-2 mt-sm-0 mb-md-3"  alt="">
           <div class="col-9 px-0 Why-Use-items">
-          <p class=" lead mb-1" style="font-weight: 500;">NIN Verification</p>
+          <p class=" lead mb-1" style="font-weight: 500;">IDENTIFICATION VERIFICATION</p>
           <p>
             
-            Verify customer's name and date of birth by checking one or multiple identity documents.
+            ConfirmMe leverages authoritative data sources to validate identities – Nigerian Interbank Settlement Scheme (NIBSS), Nigerian Identity Management Commission (NIMC), and Federal Road Safety Commission (FRSC).
           </p>
           </div>
         </div>
@@ -738,39 +879,36 @@ progress::-moz-progress-bar {
           <div class="col-9 px-0 Why-Use-items">
           <p class=" lead mb-1" style="font-weight: 500;">BVN Verification</p>
           <p>
-            
+            ConfirmMe utilizes credible and dependable Agent Verification Network services to deliver accurate results across the country.
             Verify customer's name and date of birth by checking one or multiple identity documents.
-          </p>
+         </p>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6 row flex-md-column m-0 px-0 d-sm-block">
           <img src="./assets/illustrations/addressv.svg" class="col-3 mt-2 mt-sm-0 h-25 mb-md-3" alt="">
           <div class="col-9 px-0 Why-Use-items">
-          <p class=" lead mb-1" style="font-weight: 500;">Address Verification</p>
+          <p class=" lead mb-1" style="font-weight: 500;">ADDRESS VERIFICATION</p>
           <p>
             
-            Verify customer's name and date of birth by checking one or multiple identity documents.
-          </p>
+            ConfirmMe utilizes credible and dependable Agent Verification Network services to deliver accurate results across the country.          </p>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6 row flex-md-column m-0 px-0 d-sm-block">
           <img src="./assets/illustrations/drivers.svg" class=" col-3 mt-2 mt-sm-0 h-25 mb-md-3" alt="">
           <div class="col-9 px-0 Why-Use-items">
-          <p class=" lead mb-1" style="font-weight: 500;">Driver License Verification</p>
+          <p class=" lead mb-1" style="font-weight: 500;">ACCOUNT VERIFICATION:</p>
           <p>
             
-            Verify customer's name and date of birth by checking one or multiple identity documents.
-          </p>
+            Receive real-time verification of customer bank account information using our API for Nigeria Uniform Bank Account Number (NUBAN).          </p>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6 row flex-md-column m-0 px-0 d-sm-block">
           <img src="./assets/illustrations/credit.svg" class="col-3 mt-2 mt-sm-0 h-25 mb-md-3" alt="">
           <div class="col-9 px-0 Why-Use-items">
-          <p class=" lead mb-1" style="font-weight: 500;">Credit Score</p>
+          <p class=" lead mb-1" style="font-weight: 500;">CREDIT CHECKS & REPORTS</p>
           <p>
             
-            Verify customer's name and date of birth by checking one or multiple identity documents.
-          </p>
+            ConfirmMe uses authoritative data sources to carry out credit checks leveraging fully licensed credit bureau operators in Nigeria          </p>
           </div>
         </div>
       </div>
@@ -778,100 +916,106 @@ progress::-moz-progress-bar {
     </section>
 
 
-
-    <div class="container d-none d-md-flex ">
+    <div class=" mt-5 container d-none d-md-flex ">
       <div class="row justify-content-between">
-      <div class="wrapper col-3 col-lg-4">
-        <div class="pin-up">
+      <div class=" col-4 col-lg-5">   <!-- wrapper-->
+        <p class="display-6 mb-0 fw-bolder">Why</p>
+      <p class="fw-bolder "> Use ConfirmMe </p>
+        <div class="pin-up">  <!-- -->
 
-            <div class="sideline"></div>
+             <div class="sideline"></div>
           
-            <p class="display-6 mb-0 fw-bolder">Why</p>
-      <p class="fw-bolder"> Use ConfirmMe </p>
+            
 
           <div class="text-wrap ps-2"  >
-                <progress max="100" value="0"></progress>
+                 <progress max="100" value="0"></progress>
 
-             <img src="./assets/check.svg" width="7%" alt="">
-            <div class="why-use-text"> 
-           NIN&nbsp;Verification</div>
-           <img src="./assets/check.svg" width="7%" alt="">
-            <div class="why-use-text"> Drivers&nbsp;License&nbsp; </div>
-            <img src="./assets/check.svg" width="7%" alt="">
-            <div class="why-use-text"> BVN&nbsp;Verification </div>
-            <img src="./assets/check.svg" width="7%" alt="">
-            <div class="why-use-text">Address&nbsp;Verification</div>  
+             <img src="./assets/check.svg" width="4%" alt="">
+            <div class="why-use-text pb-4"> 
+           <span class="fw-bold lead">	Seamless Onboarding:</span><br />
+Cutting-edge and cost-effective identity verification solution that provides user-friendly experiences for prospective customers at the onboarding stage and during the entire customer life cycle.
+
           </div>
-          <!-- <div class="content-wrap">
-              <span class="content content-0 initial">Greensock</span>
-              <span class="content content-1">ScrollTrigger</span>
-              <span class="content content-2">Creativity</span>
-              <span class="content content-3">Versatility</span>
-              <span class="content content-4 remaining">Awesomeness</span>
-            </div>  -->
+           <img src="./assets/check.svg" width="7%" alt="">
+            <div class="why-use-text pb-4"> 
+              <span class="fw-bold lead">  Cost-Effective solutions:</span><br />
+Lean and accurate verification process for customers, combined with potential efficiency gains for regulated entities, can help lower on-boarding costs drastically 
+               
+            </div>
+            <img src="./assets/check.svg" width="7%" alt="">
+            <div class="why-use-text pb-4">
+              <span class="fw-bold lead">    	Financial Inclusion:</span><br/>
+Digital Identity systems and financial services have emerged as core drivers of financial inclusion. ConfirmMe can allow financially excluded people with access to traditional government identity documents, such as passport and driver’s licenses use them to obtain financial services and credit services.
+              </div>
+            <img src="./assets/check.svg" width="7%" alt="">
+            <div class="why-use-text pb-4">
+         
+              <span class="fw-bold lead">   	Flexibility: </span><br /> 
+Our solutions are developed to operate over any mix of network and system infrastructures, enabling seamless integration into existing systems.
+            </div>  
+            </div>
+          </div>
+         
         </div>
-      </div>
-      <div class=" col-8 col-lg-6 " id="mySection">
-  <!-- <img src="./assets/fraud-detection.png" class="img-fluid" alt="">
-        <img src="./assets/platforms.png" class="img-fluid" alt=""> -->
+     
+
+      <div class=" col-7 col-lg-5 " id="mySection">
         <div class=" m-0 px-0 d-sm-block" >
           <img src="./assets/illustrations/ninv.svg" class="img-fluid" alt="">
           <div class="">
-          <p class=" lead mb-1" style="font-weight: 500;">NIN Verification</p>
+          <p class=" lead mb-1" style="font-weight: 800;">IDENTIFICATION VERIFICATION</p>
           <p>
             
-            Verify customer's name and date of birth by checking one or multiple identity documents.
-          </p>
+            ConfirmMe leverages authoritative data sources to validate identities – Nigerian Interbank Settlement Scheme (NIBSS), Nigerian Identity Management Commission (NIMC), and Federal Road Safety Commission (FRSC).          </p>
           </div>
       
       </div>
       <div class=" m-0 px-0 d-sm-block">
-        <img src="./assets/illustrations/bvnv.svg" class="img-fluid"  alt="">
+        <img src="./assets/illustrations/addressv.svg" class="img-fluid"  alt="">
         <div class="">
-        <p class=" lead mb-1" style="font-weight: 500;">NIN Verification</p>
+        <p class=" lead mb-1" style="font-weight: 800;">ADDRESS VERIFICATION</p>
         <p>
-          
-          Verify customer's name and date of birth by checking one or multiple identity documents.
-        </p>
+          ConfirmMe uses authoritative data sources to carry out credit checks leveraging fully licensed credit bureau operators in Nigeria.      </p>
+
+          ConfirmMe utilizes credible and dependable Agent Verification Network services to deliver accurate results across the country.        </p>
         </div>
     
     </div>
     <div class=" m-0 px-0 d-sm-block"  >
-      <img src="./assets/illustrations/addressv.svg" class="img-fluid"  alt="">
-      <div class="">
-      <p class=" lead mb-1" style="font-weight: 500;">NIN Verification</p>
-      <p>
-        
-        Verify customer's name and date of birth by checking one or multiple identity documents.
-      </p>
-      </div>
-  
-  </div>
-      <div class=" m-0 px-0 d-sm-block">
-      <img src="./assets/illustrations/drivers.svg" class="img-fluid"  alt="">
-      <div class="">
-      <p class=" lead mb-1" style="font-weight: 500;">NIN Verification</p>
-      <p>
-        
-        Verify customer's name and date of birth by checking one or multiple identity documents.
-      </p>
-      </div>
-  
-  </div>
-      <div class=" m-0 px-0 d-sm-block">
       <img src="./assets/illustrations/credit.svg" class="img-fluid"  alt="">
       <div class="">
-      <p class=" lead mb-1" style="font-weight: 500;">NIN Verification</p>
+      <p class=" lead mb-1" style="font-weight: 800;">CREDIT CHECKS & REPORTS </p>
       <p>
         
-        Verify customer's name and date of birth by checking one or multiple identity documents.
-      </p>
+        ConfirmMe uses authoritative data sources to carry out credit checks leveraging fully licensed credit bureau operators in Nigeria.      </p>
+      </div>
+  
+  </div>
+      <div class=" m-0 px-0 d-sm-block">
+      <img src="./assets/update-bank-verification@2x-1024x534.jpg" width="70%" class="img-fluid"  alt="">
+      <div class="">
+      <p class=" lead mb-1" style="font-weight: 800;">ACCOUNT VERIFICATION</p>
+      <p>
+        
+        Receive real-time verification of customer bank account information using our API for Nigeria Uniform Bank Account Number (NUBAN).      </p>
+      </div>
+  
+  </div>
+      <div class=" m-0 px-0 d-sm-block">
+      <img src="./assets/illustrations/bvnv.svg" class="img-fluid"  alt="">
+      <div class="">
+      <p class=" lead mb-1" style="font-weight: 800;">FACEMATCH & BIOMETRIC VERIFICATION</p>
+      <p>
+        
+        We provide facial matching against the BVN and NIN using a 'selfie' of the candidate (active or inactive).      </p>
       </div>
   
   </div>
         </div>
+
+      </div>
     </div>
-   </div>
+   
 
 
 <!-- Api Section -->
@@ -881,14 +1025,15 @@ progress::-moz-progress-bar {
     <div class=" col-10 col-md-5  py-9 bg-dark text-white" class="api-item1 border-3 " style="border-radius: 5px;">
       <div class="py-5 px-3">
 <h4 class="lead">
-  Robust Restful Api
+  ROBUST RESTFUL API
 
 </h4>
 <h4 class="lead">
   Any Platform
 </h4>
 <p>
-  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus quae, ducimus molestiae iure suscipit fugiat id veritatis quod quas commodi ab cupiditate perspiciatis velit eveniet vel dignissimos saepe blanditiis! Vero?
+  Our secure but simple to use API gives you access to data Verification across all your platforms.
+  All API Endpoint Return JSON Data.
 </p>
 <a href="#" class="btn btn-light mt-3">
   <i class="bi bi-chevron-right"></i> See Docs
@@ -921,21 +1066,21 @@ progress::-moz-progress-bar {
 
   <!-- pricing plans -->
   <!-- bg-light -->
-  <section id="pricing" class=" mt-5">
+  <section id="pricing" class=" mt-5 ">
     <div class="container-lg">
-      <div class="text-center">
-        <h2>Account Types</h2>
-        <p class="lead text-muted">Choose an account that suit you.</p>
+      <div class="text-center ">
+        <h2 class="main-heading">Account Types</h2>
+        <p class=" text-muted">Choose an account that suit you.</p>
       </div>
 
 <div class="row justify-content-center">
 
-      <table class="table table-bordered table-dark col-12">
+      <table class="table table-bordered table-dark px-4  col-12">
         <thead>
           <tr>
            
             <th scope="col " class="b" ></th>
-            <th scope="col">Personal</th>
+            <th scope="col">individual</th>
             <th scope="col">Corporate</th>
           </tr>
         </thead>
@@ -972,17 +1117,12 @@ progress::-moz-progress-bar {
             <td> ✓ </td>
           </tr>
 
-          <tr>
-          
-            <td class=" ">BVN Boolean</td>
-            <td> ✓ </td>
-            <td> ✓ </td>
-          </tr>
+      
 
           <tr>
           
             <td class=" ">Multiple Identity Check</li>
-            <td> ✓ </td>
+            <td>  X </td>
             <td> ✓ </td>
           </tr>
 
@@ -1003,135 +1143,50 @@ progress::-moz-progress-bar {
           <tr>
           
             <td class=" ">Create Employee Accounts</li>
-            <td> ✓ </td>
+            <td> X </td>
             <td> ✓ </td>
           </tr>
+
+          <tr>
+            <td>
+              API Integration	
+            </td>
+            <td>X</td>
+            <td>✓ </td>
+            
+          </tr>
+
+          <tr>
+            <td>
+              Widget Deployment
+            </td>
+            <td>X</td>
+            <td>✓ </td>
+            
+          </tr>
+
          
         </tbody>
       </table>
 
       <div class="row justify-content-center mt-4">
-        <button class="btn btn-lg btn-secondary col-4" style="background:#3BB75E">Personal</button>
+        <button class="btn btn-lg btn-secondary col-4" style="background:#3BB75E">Individual</button>
         <button class="btn btn-lg btn-secondary col-4 ms-3"> Corporate </button>
       </div>    
 
     </div>
+      
 
-
-
-     
-
-
-
-
-
-
-
-      <!--   <div class="row my-5 g-0 align-items-center justify-content-center">
-
-             <div class="col-8 col-lg-4 col-xl-3">
-          <div class="card border-0">
-            <div class="card-body text-center py-4">
-              <h4 class="card-title">Starter Edition</h4>
-              <p class="lead card-subtitle">eBook download only</p>
-              <p class="display-5 my-4 text-primary fw-bold">$12.99</p>
-              <p class="card-text mx-5 text-muted d-none d-lg-block">Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Mollitia, vitae magni! Repellat commodi a fuga corporis saepe dolorum.</p>
-              <a href="#" class="btn btn-outline-primary btn-lg mt-3">
-                Buy Now
-              </a>
-            </div>
-          </div>
-        </div>  -->
-
-        <!-- <div class="col-9 col-lg-4">
-          <div class="card">
-            <div class="card-header text-center text-primary"> <span style="visibility: hidden;">Plan</span> </div>
-            <div class="card-body p-0">
-           
-              <li class="list-group-item" aria-current="true"> NIN Verification</li>
-              <li class="list-group-item">BVN Verification</li>
-              <li class="list-group-item">Driver License Verification</li>
-              <li class="list-group-item">Credit Check Verification</li>
-              <li class="list-group-item">Address Verification</li>
-              <li class="list-group-item">BVN Boolean</li>
-              <li class="list-group-item">Multiple Identity Check</li>
-              <li class="list-group-item">Automatic Wallet Funding</li>
-              <li class="list-group-item">Create Employee Accounts</li>
-              <li class="list-group-item">Report Download</li>
-             
-        
-              
-            </div>
-          </div>
-        </div>
-
-        <div class="col-9 col-lg-4">
-          <div class="card">
-            <div class="card-header text-center text-primary">Personal</div>
-            <div class="card-body text-center p-0">
-              <li class="list-group-item" aria-current="true"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <a href="#" class="btn btn-outline-primary btn-lg mt-3">
-                Buy Now
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-9 col-lg-4">
-          <div class="card">
-            <div class="card-header text-center text-primary">Corporate</div>
-            <div class="card-body text-center p-0">
-              <li class="list-group-item" aria-current="true"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <li class="list-group-item"> ✓ </li>
-              <a href="#" class="btn btn-outline-primary btn-lg mt-3">
-                Buy Now
-              </a>
-            </div>
-          </div>
-        </div> -->
-
-        <!--   <div class="col-8 col-lg-4 col-xl-3">
-          <div class="card border-0">
-            <div class="card-body text-center py-4">
-              <h4 class="card-title">Ultimate Edition</h4>
-              <p class="lead card-subtitle">download, updates & extras</p>
-              <p class="display-5 my-4 text-primary fw-bold">$24.99</p>
-              <p class="card-text mx-5 text-muted d-none d-lg-block">Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Mollitia, vitae magni! Repellat commodi a fuga corporis saepe dolorum.</p>
-              <a href="#" class="btn btn-outline-primary btn-lg mt-3">
-                Buy Now
-              </a>
-            </div>
-          </div>
-        </div>  -->
+         
       </div>
 
-    </div><!-- end container -->
   </section>
 
   <!-- topics at a glance -->
   <section id="topics" class="background-map">
     <div class="container-sm ">
-      <div class="text-center">
-        <h2>Frequently Ask Questions</h2>
+      <div class="text-center ">
+        <h2 class=" main-heading">Frequently Ask Questions</h2>
         <p class="lead text-muted mb-0">What Questions Do you Have?</p>
       </div>
       <div class="row mt-0 my-md-5 g-5 justify-content-around align-items-center">
@@ -1143,32 +1198,29 @@ progress::-moz-progress-bar {
             <div class="accordion-item">
               <h2 class="accordion-header" id="heading-1">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-1"
-                  aria-expanded="true" aria-controls="chapter-1">
-                  Chapter 1 - What is ConfirmMe®
+                  aria-expanded="true" aria-controls="chapter-1" style="font-weight:800">
+                  1.	What is ConfirmMe?
                 </button>
               </h2>
               <div id="chapter-1" class="accordion-collapse collapse show" aria-labelledby="heading-1"
                 data-bs-parent="#chapters">
                 <div class="accordion-body">
-                  <p>ConfirmMe® is a unified platform that enables you search and verify individual and corporate data
-                    or information.</p>
+                  <p>ConfirmMe is a secure digital authentication identity verification solution that offers valid identity and credential verification services.</p>
 
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="heading-2">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#chapter-2" aria-expanded="false" aria-controls="chapter-2">
-                  2 - Why should I use ConfirmMe®
+                <button class="accordion-button collapsed f" style="font-weight:800" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#chapter-2" aria-expanded="false" aria-controls="chapter-2" style="font-weight:800">
+                  2.	Why Should I Use ConfirmMe?
                 </button>
               </h2>
               <div id="chapter-2" class="accordion-collapse collapse" aria-labelledby="heading-2"
                 data-bs-parent="#chapters">
                 <div class="accordion-body">
-                  <p>ConfirmMe® offers convenience, speed and efficiency, and it is recognized by the National
-                    Universities Commission and some universities in Nigeria. It is credible and also has direct access
-                    to the data source..</p>
+                  <p>ConfirmMe offers an affordable and flexible identity verification package; providing robust and real-time identity validation of both individuals and organizations which can be adopted and activated based on your specific requirements.</p>
 
                 </div>
               </div>
@@ -1176,14 +1228,14 @@ progress::-moz-progress-bar {
             <div class="accordion-item">
               <h2 class="accordion-header" id="heading-3">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#chapter-3" aria-expanded="false" aria-controls="chapter-1">
-                  3 - Can I verify anytime I want?
+                  data-bs-target="#chapter-3" aria-expanded="false" aria-controls="chapter-1" style="font-weight:800">
+                  3.	What does My Company Benefit from using ConfirmMe?
                 </button>
               </h2>
               <div id="chapter-3" class="accordion-collapse collapse" aria-labelledby="heading-3"
                 data-bs-parent="#chapters">
                 <div class="accordion-body">
-                  <p>All data confirmation services on ConfirmMe® are available to users 24/7.</p>
+                  <p>ConfirmMe provides lean and accurate verification process for customers, combined with potential efficiency gains for regulated entities that can help lower on-boarding costs drastically.</p>
 
                 </div>
               </div>
@@ -1191,17 +1243,14 @@ progress::-moz-progress-bar {
             <div class="accordion-item">
               <h2 class="accordion-header" id="heading-4">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#chapter-4" aria-expanded="false" aria-controls="chapter-4">
-                  4 - What does my company benefits from using ConfirmMe
+                  data-bs-target="#chapter-4" aria-expanded="false" aria-controls="chapter-4" style="font-weight:800">
+                  4.	Do I get additional benefits from using ConfirmMe?
                 </button>
               </h2>
               <div id="chapter-4" class="accordion-collapse collapse" aria-labelledby="heading-4"
                 data-bs-parent="#chapters">
                 <div class="accordion-body">
-                  <p>It saves time and money: Having the Confirm Me handle your data confirmation enables you to regain
-                    valuable personnel resources. This translates into hours of staff time lost each week through
-                    traveling to institutions, making & answering phone calls, returning messages, etc. Participating in
-                    Confirm Me allows you to redirect your staff resources to other activities..</p>
+                  <p>Corporate users are also entitled to price discounts on negotiated volume.</p>
 
                 </div>
               </div>
@@ -1209,68 +1258,22 @@ progress::-moz-progress-bar {
             <div class="accordion-item">
               <h2 class="accordion-header" id="heading-5">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#chapter-5" aria-expanded="false" aria-controls="chapter-5">
-                  5 - Do I get additional benefits for partnering with ConfirmMe
+                  data-bs-target="#chapter-5" aria-expanded="false" aria-controls="chapter-5" style="font-weight:800">
+                  5.	Is there a verification request that does not require payment?
                 </button>
               </h2>
               <div id="chapter-5" class="accordion-collapse collapse" aria-labelledby="heading-5"
                 data-bs-parent="#chapters">
                 <div class="accordion-body">
-                  <p>Yes, your institution / organization have the opportunity to: Earn extra income
-                    Confirm Me can add a surcharge to the verification fee, which will be remitted to the
-                    institutions/organization..</p>
+                  <p>All Identity and credential data confirmation service offered on ConfirmMe require payment(s).</p>
 
                 </div>
               </div>
             </div>
 
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="heading-5">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#chapter-5" aria-expanded="false" aria-controls="chapter-5">
-                  6 - Is there any verification request that does not require payments?
-                </button>
-              </h2>
-              <div id="chapter-5" class="accordion-collapse collapse" aria-labelledby="heading-5"
-                data-bs-parent="#chapters">
-                <div class="accordion-body">
-                  <p>All Identity and credential data confirmation service offered on ConfirmMe® require payment(s).</p>
-
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="heading-5">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#chapter-5" aria-expanded="false" aria-controls="chapter-5">
-                  7 - Can I save my verification report on my computer?
-                </button>
-              </h2>
-              <div id="chapter-5" class="accordion-collapse collapse" aria-labelledby="heading-5"
-                data-bs-parent="#chapters">
-                <div class="accordion-body">
-                  <p>Yes, reports can be downloaded on your computer..</p>
-
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="heading-5">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#chapter-5" aria-expanded="false" aria-controls="chapter-5">
-                  8 - I need verification as soon as possible. How long does it take?
-                </button>
-              </h2>
-              <div id="chapter-5" class="accordion-collapse collapse" aria-labelledby="heading-5"
-                data-bs-parent="#chapters">
-                <div class="accordion-body">
-                  <p>Transaction on ConfirmMe® is online real time (Immediately). However, user registration maybe
-                    required before some services can be accessed
-                    .</p>
-
-                </div>
-              </div>
-            </div>
+          
+           
+          
 
 
 
@@ -1291,7 +1294,7 @@ progress::-moz-progress-bar {
   </section>
 
   <!-- reviews list -->
-  <section id="reviews" class="bg-altlight background-map">
+  <!-- <section id="reviews" class="bg-altlight background-map">
     <div class="container-lg">
       <div class="text-center">
         <h2><i class="bi bi-stars text-altdark"></i>Customers Reviews</h2>
@@ -1349,7 +1352,7 @@ progress::-moz-progress-bar {
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
 
@@ -1363,7 +1366,7 @@ progress::-moz-progress-bar {
 <section class="py-0 mx-5">
 
   <div class="container-lg">
-    <div>
+    <div class="text-center">
       <p class="lead px-2" > Our Sources </p>
   </div>
     <div class="row  justify-content-between align-items-center">
@@ -1465,7 +1468,7 @@ progress::-moz-progress-bar {
 
 
   <!-- Contact & Map -->
-  <section class="p-5 footer-section" >
+  <section class="p-5 footer-section " style="background: #F1FEF4;" >
     <div class="container">
       <div class="row g-4" >
         <div class="col-md row">
@@ -1626,6 +1629,45 @@ progress::-moz-progress-bar {
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
     crossorigin="anonymous"></script>
   <script>
+document.addEventListener("DOMContentLoaded", function(){
+// make it as accordion for smaller screens
+if (window.innerWidth > 992) {
+
+	document.querySelectorAll('.navbar .nav-item').forEach(function(everyitem){
+
+		everyitem.addEventListener('mouseover', function(e){
+
+			let el_link = this.querySelector('a[data-bs-toggle]');
+
+			if(el_link != null){
+				let nextEl = el_link.nextElementSibling;
+				el_link.classList.add('show');
+				nextEl.classList.add('show');
+			}
+
+		});
+		everyitem.addEventListener('mouseleave', function(e){
+			let el_link = this.querySelector('a[data-bs-toggle]');
+
+			if(el_link != null){
+				let nextEl = el_link.nextElementSibling;
+				el_link.classList.remove('show');
+				nextEl.classList.remove('show');
+			}
+
+
+		})
+	});
+
+}
+// end if innerWidth
+}); 
+
+
+
+
+
+
     const tooltips = document.querySelectorAll('.tt')
     tooltips.forEach(t => {
       new bootstrap.Tooltip(t)
@@ -1640,6 +1682,16 @@ progress::-moz-progress-bar {
     }
 
 
+function handlePopUp(){
+  let pop = document.getElementById("hover-pop");
+   pop.classList.add('show_pop');
+ 
+}
+
+function handlePopOut(){
+  let pop = document.getElementById("hover-pop");
+   pop.classList.remove('show_pop');
+}
   </script>
   <!-- Start of ChatBot (www.chatbot.com) code -->
 <script type="text/javascript">

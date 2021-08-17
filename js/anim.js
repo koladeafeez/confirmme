@@ -3,7 +3,7 @@ var animation = bodymovin.loadAnimation({
   renderer: "svg",
   loop: true,
   autoplay: true,
-  path: "../assets/DrawKit - Animation Pack - Grape/PRODUCT/Animation 08/drawkit-grape-animation-8-LOOP.json", // lottie file path
+  // path: "../assets/illustrations/DrawKit - Economy & Finance/DrawKit - Economy & Finance/7 - BANK DEAL.svg", // lottie file path
 });
 
 // https://assets9.lottiefiles.com/packages/lf20_5n8yfkac.json
