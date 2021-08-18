@@ -508,7 +508,9 @@ progress::-moz-progress-bar {
   background-attachment: fixed;
 }
 
-
+.add-opacity{
+  opacity: 0.5;
+}
 
 /* end progress */
 
@@ -748,7 +750,7 @@ canvas {
 
   <!-- main image & intro text -->
   
-  <section id="intro pb-0"  >
+  <section id="intro" class=""  >
     <div class="container-sm">
      
       <div class="row g-4 justify-content-center align-items-center"  >
@@ -1118,7 +1120,7 @@ Our solutions are developed to operate over any mix of network and system infras
 
   <!-- pricing plans -->
   <!-- bg-light -->
-  <section id="pricing" class=" mt-5 ">
+  <section id="pricing" class=" mt-5 " >
     <div class="container-lg">
       <div class="text-center ">
         <h2 class="main-heading">Account Types</h2>
@@ -1127,7 +1129,7 @@ Our solutions are developed to operate over any mix of network and system infras
 
 <div class="row justify-content-center">
 
-      <table class="table table-bordered table-dark px-4  col-12">
+      <table class="table table-bordered table-dark px-4  col-12" style="border: 2px solid black;border-radius: 4px;">
         <thead>
           <tr>
            
@@ -1529,7 +1531,7 @@ Our solutions are developed to operate over any mix of network and system infras
           <div class="col-12 col-md-4 py-3 order-1 order-md-2 p-0">
             
             <h5 class=" footer-section-text ">Contact</h5>
-            <a href="" class="footer-section-link py-2 text-white">info@confirmme.com</a><br/>
+            <a href="" class="footer-section-link py-2 text-white">confirmme@chams.com</a><br/>
             <i class="bi bi-facebook px-2 footer-section-social"></i>
             <i class="bi bi-twitter px-2 footer-section-social"></i>
             <i class="bi bi-linkedin px-2 footer-section-social"></i>
@@ -1715,12 +1717,17 @@ if (window.innerWidth > 992) {
 function handlePopUp(){
   let pop = document.getElementById("hover-pop");
    pop.classList.add('show_pop');
+
+  let intro = document.getElementById("intro");
+  console.log(intro)
+  intro.classList.add('add-opacity');
  
 }
 
 function handlePopOut(){
   let pop = document.getElementById("hover-pop");
    pop.classList.remove('show_pop');
+   document.getElementById("intro").classList.remove('add-opacity');
 }
   </script>
   <!-- Start of ChatBot (www.chatbot.com) code -->
